@@ -51,3 +51,7 @@ To achieve this, we will make use of the following Gin functionalities :
   - Middleware - to implement authentication
 
 We'll also write some tests to show off Go's test-as-you-go approach.
+
+Routing :
+- routing is one of the core features that all modern frameworks provide.
+Any web page or an API end point is accessed by a URL. 
