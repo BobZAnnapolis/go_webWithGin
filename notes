@@ -54,4 +54,24 @@ We'll also write some tests to show off Go's test-as-you-go approach.
 
 Routing :
 - routing is one of the core features that all modern frameworks provide.
-Any web page or an API end point is accessed by a URL. 
+Any web page or an API end point is accessed by a URL.
+eg, if the URL us http://www.example.com/some/route/random - the route will be
+    /some/route/random
+
+Gin offers a fast router that's easy to configure, that also handles patterns
+and grouped URLs
+
+Application will handlethe following routes :
+  - serve the index page at route / {HTTP GET request}
+  - Group user-related routes under the /u route
+    - /u/login - serve the login page {HTTP GET}
+    - /u/login - process login credentials {HTTP POST}
+    - /u/logout - {HTTP GET}
+    - /u/register - serve the registration page {HTTP GET}
+    - /u/register - process registration info {HTTP POST}
+- Group article-related routes under /a route
+  - /a/create - serve article creation page {HTTP GET}
+  - /a/create - process submitted article {HTTP POST}
+  - /a/view/:article_id - serve requested article page {HTTP GET}
+    - :article_id indicates a dynamic route that can contain ANY value
+    - Gin will make it available to the handler {for lookup}
