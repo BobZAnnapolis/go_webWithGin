@@ -75,3 +75,12 @@ Application will handlethe following routes :
   - /a/view/:article_id - serve requested article page {HTTP GET}
     - :article_id indicates a dynamic route that can contain ANY value
     - Gin will make it available to the handler {for lookup}
+
+Rendering :
+- A web application can render a response in various formats like HTML, text,
+JSON, XML etc. API endpoints and microservices typically respond with data,
+commonly in JSON format but also in any other {requested} type.
+
+The app will render different types of responses without duplicating any
+functionality. Will primarily respond in HTML but we'll also define other
+end points which can respond with JSON or XML data.
