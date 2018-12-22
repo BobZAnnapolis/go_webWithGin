@@ -1,0 +1,53 @@
+Intro :
+- learn how to build traditional web apps and microservices in Go using the Gin framework
+
+Goal :
+- display a list of articles and the articles details page
+
+Prerequisites :
+- Go installed
+- curl
+
+Gin :
+- hi-performance micro-framework {1 of many} that can be used to build web applications
+and microservices. It makes it simple to build a request handling pipeline from modular
+reusable pieces. It does this by allowing you to write middleware that can be
+plugged into one or more request handlers or groups of request handlers.
+
+Why Gin ?
+- the built-in net/http library is nice but doesn't handle routes based upon regular
+expressions - you have to create separate req-handlers for each route. Which is ok
+for smaller web apps but when the routes increase - you get a lot of duplicated code.
+
+- Gin offers a set of commonly used functionalities, eg routing, middleware support,
+rendering that reduces dup'd code.
+
+Designing the Application :
+- most requests are processed thusly :
+  Request -> Route Parser -> [optional middleware] -> Route Handler ->
+        -> [Optional Middleware] -> Response
+- when a request comes in, Gin 1st parses the route. If a matching route definition
+is found, Gin invokes the route handler and zero or more middleware in an order
+defined by the route definition.
+
+Application Functionality :
+- This application will be a simple article manager, it should :
+  - let users register with a username and a password {non-logged in only}
+  - let users log in w/a username and password {non-logged in only}
+  - let users log out {logged in users only}
+  - let users create new articles {logged in users only}
+  - display the list of all articles on the home page {for all users}, and,
+  - display a single article on its own page {for all users}
+  -
+  - the list of articles and a single article should be accessible in HTML,
+    JSON & XML formats
+
+This functionality, when implemented, will hopefully illustrate how Gin can be
+used to design traditional web applications, API servers & microservices.
+
+To achieve this, we will make use of the following Gin functionalities :
+  - Routing - to handle all the URLs,
+  - Custom Rendering - handles the response formats, and
+  - Middleware - to implement authentication
+
+We'll also write some tests to show off Go's test-as-you-go approach.
