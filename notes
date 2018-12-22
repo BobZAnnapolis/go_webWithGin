@@ -1,20 +1,24 @@
-Intro :
+INTRO :
 - learn how to build traditional web apps and microservices in Go using the Gin framework
 
-Goal :
+
+GOAL :
 - display a list of articles and the articles details page
 
-Prerequisites :
+
+PRE-REQUISITES :
 - Go installed
 - curl
 
-Gin :
+
+GIN :
 - hi-performance micro-framework {1 of many} that can be used to build web applications
 and microservices. It makes it simple to build a request handling pipeline from modular
 reusable pieces. It does this by allowing you to write middleware that can be
 plugged into one or more request handlers or groups of request handlers.
 
-Why Gin ?
+
+WHY GIN ?
 - the built-in net/http library is nice but doesn't handle routes based upon regular
 expressions - you have to create separate req-handlers for each route. Which is ok
 for smaller web apps but when the routes increase - you get a lot of duplicated code.
@@ -22,7 +26,8 @@ for smaller web apps but when the routes increase - you get a lot of duplicated 
 - Gin offers a set of commonly used functionalities, eg routing, middleware support,
 rendering that reduces dup'd code.
 
-Designing the Application :
+
+DESIGNING THE FUNCTIONALITY :
 - most requests are processed thusly :
   Request -> Route Parser -> [optional middleware] -> Route Handler ->
         -> [Optional Middleware] -> Response
@@ -30,7 +35,8 @@ Designing the Application :
 is found, Gin invokes the route handler and zero or more middleware in an order
 defined by the route definition.
 
-Application Functionality :
+
+APPLICATION FUNCTIONALITY :
 - This application will be a simple article manager, it should :
   - let users register with a username and a password {non-logged in only}
   - let users log in w/a username and password {non-logged in only}
@@ -52,7 +58,8 @@ To achieve this, we will make use of the following Gin functionalities :
 
 We'll also write some tests to show off Go's test-as-you-go approach.
 
-Routing :
+
+ROUTING :
 - routing is one of the core features that all modern frameworks provide.
 Any web page or an API end point is accessed by a URL.
 eg, if the URL us http://www.example.com/some/route/random - the route will be
@@ -76,7 +83,8 @@ Application will handlethe following routes :
     - :article_id indicates a dynamic route that can contain ANY value
     - Gin will make it available to the handler {for lookup}
 
-Rendering :
+
+RENDERING :
 - A web application can render a response in various formats like HTML, text,
 JSON, XML etc. API endpoints and microservices typically respond with data,
 commonly in JSON format but also in any other {requested} type.
@@ -84,3 +92,35 @@ commonly in JSON format but also in any other {requested} type.
 The app will render different types of responses without duplicating any
 functionality. Will primarily respond in HTML but we'll also define other
 end points which can respond with JSON or XML data.
+
+
+MIDDLEWARE :
+- This is the code that can be executed at any time while handling the
+HTTP requests. Typically used to encapsulate common functionality to be
+applied to multiple routes. Can be used before and/or after an HTTP request,eg,
+authorization, validation.
+
+If used before the request is handled, any changes to the request will be
+available to the handler. This is handy if we want to implement some
+validations on some requests. If called after the route handler, it will
+have the response from the route handler and could modify that.
+
+Used to apply logic the app needs, eg, creating an article or logging out
+are ONLY available to users who are logged in. Also want to ensure that
+some pages and actions are only available to users who are NOT logged in, eg,
+registering, logging in.
+
+Main idea - only write code and have it available to routes / actions that need
+it, otherwise lots of dupe code.
+
+Some middleware DOES need to be applied to all routes, eg, current user status.
+Will ALWAYS need to know the current user's status in order to determine what
+actions are available for them.
+
+
+INSTALLING THE DEPENDENCY :
+- app uses only 1 dependency, go get -u github.com/gin-gonic/gin
+
+
+CREATING REUSABLE TEMPLATES :
+- 
