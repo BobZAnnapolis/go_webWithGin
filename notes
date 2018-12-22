@@ -123,4 +123,28 @@ INSTALLING THE DEPENDENCY :
 
 
 CREATING REUSABLE TEMPLATES :
-- 
+- Main web page will be done using a template. However, there will be several
+parts such as a header, footer, sidebar which will be common across all pages.
+GO allows us to create reusable importable template snippets that can be
+imported in other templates.
+
+The header and footer will be the common pieces on ALL templates. We'll also
+create the menu in its own template file which will be used by the header
+template. Finally, we'll create the template for the index page which will
+import the header and footer. All the templates will be placed in the
+\templates folder.
+
+Templates use the open source Bootstrap framework and the GO {{ .xxx }}
+functionality to inject data from external sources
+
+
+COMPLETING & VALIDATING THE SETUP
+- templates reside in the /templates folder
+- main.go file - main entry point
+  - create simplest web app using templates
+  - steps :
+    - create the router
+    - load the templates
+    - define the route handler
+    - start the app
+- see code for GO & GIN framework implementation details
