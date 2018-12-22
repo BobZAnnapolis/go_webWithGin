@@ -2,24 +2,23 @@
 
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "github.com/gin-gonic/gin"
 
 var router *gin.Engine
 
 func main() {
 
-	// set the router as the default one provided by Gin
+	// Set the router as the default one provided by Gin
 	router = gin.Default()
 
-	// process the templates at the start so that they don't have to be loaded
-	// from the disk again, ie, speed up HTML page rendering
+	// Process the templates at the start so that they don't have to be loaded
+	// from the disk again. This makes serving HTML pages very fast.
 	router.LoadHTMLGlob("templates/*")
 
-	// initialize the routes
-	initalizeRoutes()
+	// Initialize the routes
+	initializeRoutes()
 
-	// start serving the application
+	// Start serving the application
 	router.Run()
+
 }
