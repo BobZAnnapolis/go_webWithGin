@@ -3,6 +3,17 @@
 <!-- embed the header.html template here -->
 {{ template "header.html" . }}
 
-  <h1>Hello Gin - from the index.html file</h1>
+<!-- loop over the `payload` var, extracting list information -->
+{{ range .payload }}
+<!-- create a link based upon the id, remembering that all  -->
+<!-- article routes go thru  /a/  -->
+  <a href="/a/view{{.ID}}">
+    <!--Display the title-->
+    <h2>{{.Title}}</h2>
+    <!--Display the content-->
+    <p>{{.Content}}</p>
+  </a>
+{{ end }}
 
 <!-- embed the footer.html template here -->
+{{ template "footer.html" . }}

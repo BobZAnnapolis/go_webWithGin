@@ -148,3 +148,20 @@ COMPLETING & VALIDATING THE SETUP
     - define the route handler
     - start the app
 - see code for GO & GIN framework implementation details
+
+
+DISPLAYING THE LIST OF ARTICLES :
+- steps
+  - set up the routes
+    - going to be done thru an init_routes function in a separate file
+
+
+DESIGNING THE ARTICLE MODEL
+- keeping it simple for this app
+- 3 fields, an id and 2 strings, title, content
+- use a db to persist but again for demo purposes, use memory
+
+
+CREATING THE VIEW TEMPLATE
+- the articles will be displayed on the index page so modify it to
+use GO templating vars to populate it with the articles
