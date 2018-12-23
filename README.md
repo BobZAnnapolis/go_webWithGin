@@ -17,13 +17,12 @@ Only uses 1 dependency :
 
 - invocation:
  - /a/view/xx where 'xx' is the number of an article displayed
-[GIN-debug] GET    /                         --> main.showIndexPage (4 handlers)
-[GIN-debug] GET    /u/login                  --> main.showLoginPage (5 handlers)
-[GIN-debug] POST   /u/login                  --> main.performLogin (5 handlers)
-[GIN-debug] GET    /u/logout                 --> main.logout (5 handlers)
-[GIN-debug] GET    /u/register               --> main.showRegistrationPage (5 handlers)
-[GIN-debug] POST   /u/register               --> main.register (5 handlers)
-[GIN-debug] GET    /a/view/:article_id       --> main.getArticle (4 handlers)
-[GIN-debug] GET    /a/create                 --> main.showArticleCreationPage (5 handlers)
-[GIN-debug] POST   /a/create                 --> main.createArticle (5 handlers)
-
+ - [GIN-debug] GET    /                         --> main.showIndexPage (4 handlers)
+ - [GIN-debug] GET    /u/login                  --> main.showLoginPage (5 handlers)
+ - [GIN-debug] POST   /u/login                  --> main.performLogin (5 handlers)
+ - [GIN-debug] GET    /u/logout                 --> main.logout (5 handlers)
+ - [GIN-debug] GET    /u/register               --> main.showRegistrationPage (5 handlers)
+ - [GIN-debug] POST   /u/register               --> main.register (5 handlers)
+ - [GIN-debug] GET    /a/view/:article_id       --> main.getArticle (4 handlers)
+ - [GIN-debug] GET    /a/create                 --> main.showArticleCreationPage (5 handlers)
+ - [GIN-debug] POST   /a/create                 --> main.createArticle (5 handlers)
