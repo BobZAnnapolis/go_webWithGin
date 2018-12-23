@@ -162,6 +162,24 @@ DESIGNING THE ARTICLE MODEL
 - use a db to persist but again for demo purposes, use memory
 
 
-CREATING THE VIEW TEMPLATE
+CREATING THE VIEW TEMPLATES
 - the articles will be displayed on the index page so modify it to
 use GO templating vars to populate it with the articles
+
+
+CREATING THE ROUTE HANDLER
+- getArticle will do the following :
+  - extract the id of the article to display
+  - fetch the article from our array
+  - render the article.html file with extracted info
+  - build & Run
+    - use localhost:8080/a/view/XXX to see in browser
+
+
+
+RESPONDING WITH JSON/XML
+- refactor the route handler so we can respond w/different formats
+- parse the request to determine what format to respond with, default html
+- create a render method to determine correct format
+- curl -X GET -H "Accept: application/json" http://localhost:8080/
+  - use other formats to test those out

@@ -1,19 +1,18 @@
-<!-- index.html -->
+<!--index.html-->
 
-<!-- embed the header.html template here -->
-{{ template "header.html" . }}
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
 
-<!-- loop over the `payload` var, extracting list information -->
-{{ range .payload }}
-<!-- create a link based upon the id, remembering that all  -->
-<!-- article routes go thru  /a/  -->
-  <a href="/a/view{{.ID}}">
-    <!--Display the title-->
-    <h2>{{.Title}}</h2>
-    <!--Display the content-->
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  {{range .payload }}
+    <!--Create the link for the article based on its ID-->
+    <a href="/a/view/{{.ID}}">
+      <!--Display the title of the article -->
+      <h2>{{.Title}}</h2>
+    </a>
+    <!--Display the content of the article-->
     <p>{{.Content}}</p>
-  </a>
-{{ end }}
+  {{end}}
 
-<!-- embed the footer.html template here -->
-{{ template "footer.html" . }}
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}
